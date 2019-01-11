@@ -9,3 +9,6 @@ npm-debug.log*
 # npm
 node_modules
 package-lock.json
+
+# report
+/unit/flow-coverage
