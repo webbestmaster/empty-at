@@ -13,12 +13,15 @@
     "mdlint": "eslint --ext md .",
     "mdlint:fix": "eslint --ext md . --fix",
     "flow-coverage": "flow-coverage-report --config ./flow-coverage-config.json",
-    "test": "mocha --require @babel/register"
+    "test-example-1": "mocha --require @babel/register",
+    "test-example-2": "babel-node node_modules/.bin/_mocha",
+    "test:cover": "nyc --reporter=lcov --reporter=text mocha --require @babel/register"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

@@ -8,4 +8,8 @@ export class TestMe {
     sum(first: number, second: number): number {
         return first + second;
     }
+
+    sumUncovered(first: number, second: number): number {
+        return first + second;
+    }
 }
