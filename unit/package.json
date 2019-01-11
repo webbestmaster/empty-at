@@ -15,7 +15,7 @@
     "flow-coverage": "flow-coverage-report --config ./flow-coverage-config.json",
     "test-ver-1": "mocha --require @babel/register",
     "test-ver-2": "babel-node node_modules/.bin/_mocha",
-    "test:cover": "nyc --reporter=lcov --reporter=text mocha --require @babel/register"
+    "test:cover": "nyc --reporter=html --reporter=text mocha --require @babel/register"
   },
   "author": "",
   "license": "MIT",
