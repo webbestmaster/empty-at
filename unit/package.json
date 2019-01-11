@@ -13,8 +13,8 @@
     "mdlint": "eslint --ext md .",
     "mdlint:fix": "eslint --ext md . --fix",
     "flow-coverage": "flow-coverage-report --config ./flow-coverage-config.json",
-    "test-1": "mocha --require @babel/register",
-    "test-2": "babel-node node_modules/.bin/_mocha",
+    "test-ver-1": "mocha --require @babel/register",
+    "test-ver-2": "babel-node node_modules/.bin/_mocha",
     "test:cover": "nyc --reporter=lcov --reporter=text mocha --require @babel/register"
   },
   "author": "",
