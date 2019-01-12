@@ -2,6 +2,8 @@
   "name": "unit",
   "version": "1.0.0",
   "description": "Empty at: unit",
+  "author": "",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "check": "npm run eslint; npm run flow;",
@@ -18,8 +20,6 @@
     "test-mocha:cover": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test-mocha/",
     "jest": "jest ./test-jest/ --coverage --config ./jest.config.json"
   },
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "jest": "^23.6.0",
     "mocha": "^5.2.0",
