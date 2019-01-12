@@ -14,3 +14,4 @@ package-lock.json
 /unit/coverage
 /unit/flow-coverage
 /unit/.nyc_output
+/unit/test-report.html
