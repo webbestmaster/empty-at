@@ -8,6 +8,8 @@ declare module 'selenium-webdriver' {
         manage(): WdManage,
         quit(): Promise<mixed>,
         get(url: string): Promise<mixed>,
+        sleep(timeOutInMs: number): Promise<mixed>,
+        wait(waiter: UntilElementLocatedType | UntilElementVisibleType, timeOutInMs: number): Promise<WdHtmlElement>,
     }
 
     declare export class Builder {
@@ -28,6 +30,8 @@ declare module 'selenium-webdriver' {
     declare class WdHtmlElement {
         getLocation(): Promise<{x: number, y: number}>,
         getSize(): Promise<{width: number, height: number}>,
+        click(): Promise<mixed>,
+        sendKeys(text: string): Promise<mixed>,
     }
 
     declare type CssSelectorType = {};
@@ -37,6 +41,17 @@ declare module 'selenium-webdriver' {
     };
 
     declare export var By: ByType;
+
+    declare type UntilElementLocatedType = mixed;
+    declare type UntilElementVisibleType = mixed;
+
+    declare type UntilType = {
+        elementLocated(cssSelector: CssSelectorType): UntilElementLocatedType,
+        elementIsVisible(element: WdHtmlElement): UntilElementVisibleType,
+        elementIsNotVisible(element: WdHtmlElement): UntilElementVisibleType,
+    };
+
+    declare export var until: UntilType;
 }
 
 declare module 'selenium-webdriver/remote' {

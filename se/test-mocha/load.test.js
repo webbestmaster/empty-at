@@ -2,7 +2,7 @@
 
 /* global describe, it, before, after, beforeEach, afterEach */
 
-import {Builder} from 'selenium-webdriver';
+import {Builder, By, until} from 'selenium-webdriver';
 
 import {SeleniumServer} from 'selenium-webdriver/remote';
 import {screen} from '../se-core/util/se';
@@ -40,6 +40,22 @@ describe('Load', () => {
             throw new Error('Driver is not define!');
         }
 
+        const searchElemSelector = 'input.gLFyf';
+
         await driver.get('https://google.com');
+
+        await driver.sleep(1e3);
+
+        const localedElem = await driver.wait(until.elementLocated(By.css(searchElemSelector)), 10e3);
+        // const localedElem = await driver.findElement(By.css(searchElemSelector));
+        // await localedElem.click();
+
+        await localedElem.sendKeys('[ localed element! ]');
+
+        const visibleElem = await driver.wait(until.elementIsVisible(localedElem), 10e3);
+
+        await visibleElem.sendKeys('[ visible element! ]');
+
+        await driver.sleep(3e3);
     }).timeout(30e3);
 });
