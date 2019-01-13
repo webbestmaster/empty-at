@@ -4,7 +4,25 @@
 
 import {type ServerArgType} from 'selenium-webdriver/remote';
 import path from 'path';
+
 const pathToDrivers = path.resolve('se-core', 'driver');
+
+type EnvDataType = {|
+    +isMobile: boolean,
+    +wdServerUrl: string,
+|};
+
+export function getEnvData(): EnvDataType {
+    // eslint-disable-next-line no-process-env, id-match
+    const {IS_MOBILE, SE_SERVER_PORT} = process.env;
+
+    const seServerPort = parseInt(SE_SERVER_PORT, 10);
+
+    return {
+        isMobile: Boolean(IS_MOBILE),
+        wdServerUrl: 'http://localhost:' + seServerPort + '/wd/hub',
+    };
+}
 
 export function getCapabilities(): mixed {
     // eslint-disable-next-line no-process-env

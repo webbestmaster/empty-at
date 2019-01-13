@@ -15,7 +15,8 @@
     "mdlint": "eslint --ext md .",
     "mdlint:fix": "eslint --ext md . --fix",
     "flow-coverage": "flow-coverage-report --config ./flow-coverage-config.json",
-    "test": "./run.sh chrome"
+    "test-pc-chrome": "./run.sh chrome",
+    "test-mob": "./run.sh android"
   },
   "dependencies": {
     "jest": "^23.6.0",

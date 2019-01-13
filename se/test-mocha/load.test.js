@@ -6,19 +6,15 @@ import {Builder} from 'selenium-webdriver';
 
 import {SeleniumServer} from 'selenium-webdriver/remote';
 import {screen} from '../se-core/util/se';
-import {getSeleniumServerArgs, getCapabilities} from '../se-core/util/env';
-
-const envData = {
-    isMobile: false,
-    wdServerUrl: 'http://localhost:4444/wd/hub',
-};
+import {getSeleniumServerArgs, getCapabilities, getEnvData} from '../se-core/util/env';
+const {isMobile, wdServerUrl} = getEnvData();
 
 const server = new SeleniumServer(...getSeleniumServerArgs());
 
 let driver = null;
 
 describe('Load', () => {
-    if (!envData.isMobile) {
+    if (!isMobile) {
         before(async (): Promise<mixed> => server.start());
     }
 
@@ -27,11 +23,11 @@ describe('Load', () => {
     beforeEach(
         async (): Promise<mixed> => {
             driver = new Builder()
-                .usingServer(envData.wdServerUrl)
+                .usingServer(wdServerUrl)
                 .withCapabilities(getCapabilities())
                 .build();
 
-            if (!envData.isMobile) {
+            if (!isMobile) {
                 await screen.setSize(driver, 1024, 768);
             }
         }

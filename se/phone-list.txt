@@ -5,8 +5,8 @@
 # 0123456789ABCDEF
 
 # emulators
-emulator-5560
-emulator-5558
+# emulator-5560
+# emulator-5558
 emulator-5554
 
 # phone1-id

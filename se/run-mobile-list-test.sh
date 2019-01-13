@@ -5,25 +5,29 @@ deviceIds=""
 
 while read -r line
 do
-    if [[ -n $line && "$line" != "#"* ]]; then
-        deviceIds+=$line" "
+    if [[ -n ${line} && "$line" != "#"* ]]; then
+        deviceIds+=${line}" "
     fi
-done < $phoneListFileName
+done < ${phoneListFileName}
 
-pathToAdb="~/Android/Sdk/platform-tools/adb"
+# linux
+#pathToAdb="~/Android/Sdk/platform-tools/adb"
+
+# mac os
+pathToAdb="~/Library/Android/sdk/platform-tools/adb"
 
 echo "Unbind all devices"
 
 ( exec "${pathToAdb}" forward --remove-all )
 
-deviceIds=($deviceIds)
+deviceIds=(${deviceIds})
 startPortNumber=8000
 
 for deviceId in "${deviceIds[@]}";
 do
 
     startPortNumber=$((startPortNumber + 1))
-    serverPort=$startPortNumber
+    serverPort=${startPortNumber}
 
     # bind device
     echo "Prepare device - deviceId: ${deviceId} to tcp: ${serverPort}"
@@ -41,5 +45,5 @@ do
     echo "Run app"
     ( exec "${pathToAdb}" -s "${deviceId}" shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity)
 
-    run-mobile-test.sh $deviceId $serverPort # &
+    ./run-mobile-test.sh ${deviceId} ${serverPort} # &
 done
