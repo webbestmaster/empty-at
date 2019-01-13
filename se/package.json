@@ -15,10 +15,7 @@
     "mdlint": "eslint --ext md .",
     "mdlint:fix": "eslint --ext md . --fix",
     "flow-coverage": "flow-coverage-report --config ./flow-coverage-config.json",
-    "test-mocha-ver-1": "mocha --require @babel/register ./test-mocha/",
-    "test-mocha-ver-2": "babel-node node_modules/.bin/_mocha ./test-mocha/",
-    "test-mocha:cover": "echo \"No coverage for se\"",
-    "jest": "jest ./test-jest/ --config ./jest.config.json"
+    "test": "./run.sh chrome"
   },
   "dependencies": {
     "jest": "^23.6.0",

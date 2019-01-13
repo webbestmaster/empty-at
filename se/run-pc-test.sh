@@ -3,17 +3,18 @@
 clear
 browser=$1
 
-if [ -z "${browser}" ] ; then
+if [[ -z "${browser}" ]] ; then
     echo "You should pass a parameter: browser"
     exit 1
 fi
 
-now="$(date +'%Y-%m-%d-%H-%M-%S')"
-reportsFolder=./reports
-reportName=auto-test-$browser--$now
+mocha --require @babel/register ./test-mocha/
 
-mocha ./test/*.test.js --reporter mochawesome --reporter-options reportDir=$reportsFolder/$reportName,reportFilename=$reportName,reportTitle="Auto Test $browser - $now",inlineAssets=false
+#now="$(date +'%Y-%m-%d-%H-%M-%S')"
+#reportsFolder=./reports
+#reportName=auto-test-$browser--$now
 
+# mocha ./test/*.test.js --reporter mochawesome --reporter-options reportDir=$reportsFolder/$reportName,reportFilename=$reportName,reportTitle="Auto Test $browser - $now",inlineAssets=falsemocha ./test/*.test.js
 
 #unamestr=`uname`
 #reportPath="./$reportsFolder/auto-test-$now/$reportName.html"
