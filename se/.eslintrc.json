@@ -1,27 +1,171 @@
+// Rule 'space-after-keywords' was removed and replaced by: keyword-spacing  space-after-keywords
+// Rule 'space-return-throw-case' was removed and replaced by: keyword-spacing  space-return-throw-case
+
 {
     "parser": "babel-eslint",
-    "extends": "eslint:recommended",
+    "extends": [
+        "plugin:jsx-a11y/recommended",
+        "eslint:recommended",
+        "plugin:flowtype/recommended",
+        "plugin:react/all",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:promise/recommended",
+        "plugin:sonarjs/recommended",
+        "plugin:unicorn/recommended"
+    ],
     "globals": {
         "require": true,
         "module": true,
         "console": true
     },
     "plugins": [
+        "jsx-a11y",
+        "no-use-extend-native",
+        "import",
+        "flowtype",
+        "react",
+        "promise",
+        "sonarjs",
+        "optimize-regex",
+        "unicorn",
+        "no-loops",
+        "filenames",
+        "markdown",
+        "babel"
     ],
     "env": {
         "es6": true,
         "browser": false,
         "node": false
     },
+    "settings": {
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": true
+        }
+    },
     "rules": {
+        "babel/new-cap": 1,
+        "babel/no-invalid-this": 1,
+        "babel/object-curly-spacing": 1,
+        "babel/quotes": [
+            1,
+            "single"
+        ],
+        "babel/semi": 1,
+        "babel/no-unused-expressions": 1,
+        "babel/valid-typeof": 1,
+        // deprecated
+        "jsx-a11y/label-has-for": 0,
+        "filenames/no-index": 2,
+        "import/no-useless-path-segments": 2,
+        "import/no-default-export": 2,
+        "no-loops/no-loops": 2,
+        "optimize-regex/optimize-regex": 1,
+        "no-use-extend-native/no-use-extend-native": 2,
+        "flowtype/boolean-style": [
+            2,
+            "boolean"
+        ],
+        "flowtype/define-flow-type": 1,
+        "flowtype/delimiter-dangle": [
+            2,
+            "always-multiline"
+        ],
+        "flowtype/generic-spacing": [
+            2,
+            "never"
+        ],
+        "flowtype/no-primitive-constructor-types": 2,
+        "flowtype/no-types-missing-file-annotation": 2,
+        "flowtype/no-weak-types": 2,
+        "flowtype/object-type-delimiter": [
+            2,
+            "comma"
+        ],
+        "flowtype/require-parameter-type": 2,
+        "flowtype/require-return-type": [
+            2,
+            "always",
+            {
+                "annotateUndefined": "never"
+            }
+        ],
+        "flowtype/require-valid-file-annotation": 2,
+        "flowtype/semi": [
+            2,
+            "always"
+        ],
+        "flowtype/space-after-type-colon": [
+            2,
+            "always"
+        ],
+        "flowtype/space-before-generic-bracket": [
+            2,
+            "never"
+        ],
+        "flowtype/space-before-type-colon": [
+            2,
+            "never"
+        ],
+        "flowtype/type-id-match": [
+            2,
+            "^([A-Z][a-z0-9]+)+Type$"
+        ],
+        "flowtype/union-intersection-spacing": [
+            2,
+            "always"
+        ],
+        "flowtype/use-flow-type": 1,
+        "flowtype/valid-syntax": 1,
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "react/no-unused-prop-types": 0,
+        "react/sort-comp": 0,
+        "react/jsx-sort-props": 0,
+        "react/jsx-closing-bracket-location": [
+            1,
+            "line-aligned"
+        ],
+        "react/forbid-component-props": 0,
+        "react/jsx-no-literals": 0,
+        "react/require-default-props": 0,
+        "react/require-optimization": 0,
+        "react/jsx-max-depth": [
+            1,
+            {
+                "max": 3
+            }
+        ],
+        "react/jsx-tag-spacing": [
+            1,
+            {
+                "closingSlash": "never",
+                "beforeSelfClosing": "never",
+                "afterOpening": "never",
+                "beforeClosing": "never"
+            }
+        ],
+        "react/jsx-max-props-per-line": [
+            1,
+            {
+                "maximum": 5
+            }
+        ],
+        "react/jsx-one-expression-per-line": 0,
+        //        "react/destructuring-assignment": [1, "never"],
         "no-console": 0,
         "no-empty-label": 0,
         "no-warning-comments": 0,
         "no-unused-vars": 0,
-        "consistent-this": [
-            1,
-            "view"
-        ],
+        "consistent-this": 1,
         "no-inline-comments": 0,
         "no-ternary": 0,
         "object-curly-spacing": [
@@ -43,7 +187,13 @@
         "wrap-regex": 0,
         "comma-dangle": [
             1,
-            "never"
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "never"
+            }
         ],
         "no-cond-assign": [
             1,
@@ -132,7 +282,7 @@
             }
         ],
         "no-implied-eval": 1,
-        "no-invalid-this": 1,
+        "no-invalid-this": 0,
         "no-iterator": 1,
         "no-labels": 1,
         "no-lone-blocks": 1,
@@ -282,7 +432,9 @@
                 "exceptions": [
                     "ii",
                     "id",
-                    "to"
+                    "to",
+                    "x",
+                    "y"
                 ]
             }
         ],
@@ -337,6 +489,13 @@
         "linebreak-style": [
             1,
             "unix"
+        ],
+        "lines-between-class-members": [
+            1,
+            "always",
+            {
+                "exceptAfterSingleLine": true
+            }
         ],
         "max-nested-callbacks": [
             1,
@@ -405,7 +564,7 @@
         ],
         "id-match": [
             1,
-            "^[a-zA-Z0-9]+$",
+            "^\\$?[a-zA-Z0-9]+$",
             {
                 "onlyDeclarations": false,
                 "properties": true
