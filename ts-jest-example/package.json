@@ -1,0 +1,19 @@
+{
+  "name": "ts-jest-example",
+  "version": "1.0.0",
+  "description": "Empty at: ts jest example",
+  "author": "",
+  "license": "MIT",
+  "main": "",
+  "scripts": {
+    "jest": "jest ./test-jest/ --coverage --config ./jest.config.js"
+  },
+  "dependencies": {
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "typescript": "^4.3.5"
+  }
+}
