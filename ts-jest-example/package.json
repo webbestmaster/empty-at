@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "",
   "scripts": {
-    "jest": "jest ./test-jest/ --coverage --config ./jest.config.js"
+    "jest": "jest ./test-jest/ --coverage"
   },
   "dependencies": {
     "jest": "^27.0.6",
